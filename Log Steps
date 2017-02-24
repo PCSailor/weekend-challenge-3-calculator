@@ -1,0 +1,19 @@
+small amount of code as math is done in the app.POST function
+Ajax is always client side
+App.GET or POST is server side
+Get an object into ajax
+jQuery getting object onto Server
+GET has no body
+POST needs a body & must pass some data
+Do a simple Ajax.POST and app.POST with consoleLogs to test communication between server & Client
+--
+Enter 2 values
+choose button (+ - * /)
+3 inputs onto DOM
+3 inputs into client.js
+3 inputs into app.js
+do math
+result math
+single result into client
+single result onto DOM
+single result onto HTML
