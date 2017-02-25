@@ -1,0 +1,9 @@
+body {
+  display: inline;
+}
+.button {
+  width: 25px;
+  height: 25px;
+  border-color: black;
+
+}
