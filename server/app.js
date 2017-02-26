@@ -9,8 +9,6 @@ var app = express();
 app.use (express.static('server/public')); // NOTE: Is it a static file?
 app.use (bodyParser.urlencoded({extended: true})); // NOTE: does the request have data? Yes? Creates req.body & holds it until called upon  within app.post
 var calculations = [];
-
-
 var calcOne = "";
 var calcTwo = "";
 app.post('/', function(req, res) {
@@ -26,8 +24,6 @@ app.post('/', function(req, res) {
   console.log(typeof result);
   res.send(result.toString());
   console.log(result);
-  // res.sendStatus(200);
-
 });
 // console.log(calcOne, calcTwo);
 // app.get('/', function(req, res) {

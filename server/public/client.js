@@ -30,6 +30,12 @@ $('#multiply').on('click', function(){
 //   }
 // })
 
+function opsFunction () {
+var ops = document.getElementById("operator").length
+document.getElementById("calculation").innerhtml = ops;
+
+}
+
 $('#result').on('click', function(num1 , num2 ){
   console.log('Result Button clicked');
   var $num1 = $('#num1').val();  // NOTE: moved to global
@@ -44,6 +50,8 @@ $('#result').on('click', function(num1 , num2 ){
       success: function(response) {
         console.log('Successful response from server back here to client.  Result is: ', response);
         console.log(response);
+        // $('#calculation').text(response)
+        $('#calculation').val(response)
       }
     });// NOTE: FOR: $.ajax({
     // }
