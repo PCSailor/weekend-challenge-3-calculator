@@ -7,3 +7,10 @@ body {
   border-color: black;
 
 }
+.input {
+  width: 125px;
+  height: 30px;
+  border-color: black;
+  text-align: center;
+  font-size: auto;
+}
