@@ -9,7 +9,7 @@ display: inline;
   float: right;
 
 }
-.input {
+#num1, #num2, #calculation {
   margin: 10px;
   width: 125px;
   height: 30px;

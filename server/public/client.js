@@ -30,11 +30,38 @@ $('#multiply').on('click', function(){
 //   }
 // })
 
+// NOTE: Operators
 function opsFunction () {
 var ops = document.getElementById("operator").length
 document.getElementById("calculation").innerhtml = ops;
-
 }
+
+// NOTE: fromMelissa
+// var mathObject = {                // creating the object
+//        x: $('#numX').val(),
+//        y: $('#numY').val(),
+//        symbol: $('.mathSymbols').val()
+// NOTE: Operators
+
+function () {
+  // var operator = $('select[name="options"]').find('option[value="3"]').attr("selected",true);
+
+
+  if ( operator == true) {
+console.log('Operator Selection: ', operator);
+}
+}
+
+
+// NOTE: clear
+var clear = $('#clear').on('click', function() {
+  // set #num1 and #num2 to empty
+  $('#num1').val('');
+  $('#num2').val('');
+  $('#calculation').val('');
+  console.log('Cleared!');
+});
+
 
 $('#result').on('click', function(num1 , num2 ){
   console.log('Result Button clicked');
