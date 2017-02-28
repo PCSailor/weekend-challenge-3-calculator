@@ -1,11 +1,14 @@
 $(document).ready(function () {
-console.log('jQuery is sourced');
-////////////////////////// NOTE: Into Server ///////////////////////////////////
+console.log('jQuery sourced');
+// var num0 = '';
+// var num1 = '';
+// var operator = '';
+// var captureNum1 = false;
+
 // $('numArray').empty();  // NOTE: Empty the object
 
-// NOTE: clear
-var clear = $('#clear').on('click', function() {
-  // set #num1 and #num2 to empty
+// NOTE: set values to empty
+$('#clear').on('click', function() {
   $('#num1').val('');
   $('#num2').val('');
   $('#calculation').val('');
@@ -20,21 +23,21 @@ $('#result').on('click', function(){
   var $num2 = $('#num2').val();
   var ops = $('#operator').val();
   var calcData = {$num1, $num2, ops};
-  var objectToSend = {
-    num1: $num1,
-    num2: $num2,
-    operator: ops
-  }
-  console.log(objectToSend);
+  // var objectToSend = {
+  //   num1: $num1,
+  //   num2: $num2,
+  //   operator: ops
+  // }
+  console.log(calcData);
   // function ajaxPost() {
     $.ajax({
       type: 'POST', // NOTE: These two lines are retrieving AND posting data
       url: '/',
-      data: ops,
+      data: calcData,
       // data: objectToSend, // NOTE: data becomes req.body on the server side
       success: function(response) {
-        console.log('Successful response from server back to client.  Result is: ');
-        // $('#calculation').val(response)
+        console.log('Successful response is: ', response.answer);
+        $('#calculation').val(response.answer)
       }
     });// NOTE: FOR: $.ajax({
     // }

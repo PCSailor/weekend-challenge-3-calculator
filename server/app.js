@@ -14,43 +14,48 @@ var calcTwo = "";
 
 app.post('/', function(req, res) {
   var newCalc = req.body; // NOTE: .data from client.js becomes this req.body.  Now have the object from client.js within this variable
-  console.log(newCalc);
+  console.log('client.js data is: ',newCalc);
   // calculations.push(newCalc);
   // console.log('var newCalc = req.body; returns: ', newCalc);
   // console.log(typeof newCalc);
   var calcOne = parseInt(newCalc.$num1);
   var calcTwo = parseInt(newCalc.$num2);
   var calcOps = newCalc.ops;
-  console.log(calcOps);
+  // console.log(calcOps);
+  // res.send('whaddup bitches');
+  console.log(calcOne, calcTwo);
+  console.log(typeof calcOne, calcTwo);
 
 
-  // var resultSt = (calcOne, calcTwo).toString();
-  // console.log(typeof resultSt, " resultSt");
-  // var result = (calcOne, calcTwo, " result");
-  // console.log(typeof result);
-  // var numOneAppJs = parseInt(calcOne);
-  // var numTwoAppJs = parseInt(calcTwo);
-  console.log(calcOne);
-  console.log(typeof calcOne);
-  console.log(calcTwo);
-  console.log(typeof calcTwo);
+  // if (calcOps == '+') {
+  //   console.log(calcOne + calcTwo);
+  //   res.send(calcOne + calcTwo)
+  // } else if (calcOps == '-') {
+  //   console.log(calcOne - calcTwo);
+  //   res.send(calcOne - calcTwo);
+  // } else if (calcOps == '*') {
+  //   console.log(calcOne * calcTwo);
+  //   res.send(calcOne * calcTwo);
+  // } else {
+  //   console.log(calcOne / calcTwo);
+  //   res.send(calcOne / calcTwo);
+  // }
 
-// var result = function(){
-//   if (calcOps == '+') {
-//     console.log(calcOne + calcTwo);
-//     res.send(calcOne + calcTwo)
-//   } else if (calcOps == '-') {
-//     console.log(calcOne - calcTwo);
-//     res.send(calcOne - calcTwo);
-//   } else if (calcOps == '*') {
-//     console.log(calcOne * calcTwo);
-//     res.send(calcOne * calcTwo);
-//   } else {
-//     console.log(calcOne / calcTwo);
-//     res.send(calcOne / calcTwo);
-//   }
-// }
+  if (calcOps == '+') {
+    var answer = (calcOne + calcTwo);
+  } else if (calcOps == '-') {
+    answer = (calcOne - calcTwo);
+  } else if (calcOps == '*') {
+    answer = (calcOne * calcTwo);
+  } else {
+    answer = (calcOne / calcTwo);
+  }
 
+var objectToSend = {
+  answer: answer
+}
+console.log('Final result = ',objectToSend);
+res.send(objectToSend);
   // var stringResult = result.toString();
   // console.log(result);
   // console.log(typeof result);
