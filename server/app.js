@@ -2,35 +2,69 @@
 // router.post('/division', function(req, res){
 //   //some code here
 // });
-console.log('app.js success & mock server listening on Port 5000');
+// console.log('app.js success & mock server listening on Port 5000');
 var express = require('express');
-var bodyParser = require('body-parser');
 var app = express();
+var bodyParser = require('body-parser');
 app.use (express.static('server/public')); // NOTE: Is it a static file?
 app.use (bodyParser.urlencoded({extended: true})); // NOTE: does the request have data? Yes? Creates req.body & holds it until called upon  within app.post
 var calculations = [];
 var calcOne = "";
 var calcTwo = "";
+
 app.post('/', function(req, res) {
   var newCalc = req.body; // NOTE: .data from client.js becomes this req.body.  Now have the object from client.js within this variable
-  calculations.push(newCalc);
-  console.log('var newCalc = req.body; returns: ', newCalc);
-  console.log(typeof newCalc);
-  var calcOne = newCalc.$num1;
-  var calcTwo = newCalc.$num2;
-  var result = (calcOne - calcTwo).toString();
+  console.log(newCalc);
+  // calculations.push(newCalc);
+  // console.log('var newCalc = req.body; returns: ', newCalc);
+  // console.log(typeof newCalc);
+  var calcOne = parseInt(newCalc.$num1);
+  var calcTwo = parseInt(newCalc.$num2);
+  var calcOps = newCalc.ops;
+  console.log(calcOps);
+
+
+  // var resultSt = (calcOne, calcTwo).toString();
+  // console.log(typeof resultSt, " resultSt");
+  // var result = (calcOne, calcTwo, " result");
+  // console.log(typeof result);
+  // var numOneAppJs = parseInt(calcOne);
+  // var numTwoAppJs = parseInt(calcTwo);
+  console.log(calcOne);
+  console.log(typeof calcOne);
+  console.log(calcTwo);
+  console.log(typeof calcTwo);
+
+// var result = function(){
+//   if (calcOps == '+') {
+//     console.log(calcOne + calcTwo);
+//     res.send(calcOne + calcTwo)
+//   } else if (calcOps == '-') {
+//     console.log(calcOne - calcTwo);
+//     res.send(calcOne - calcTwo);
+//   } else if (calcOps == '*') {
+//     console.log(calcOne * calcTwo);
+//     res.send(calcOne * calcTwo);
+//   } else {
+//     console.log(calcOne / calcTwo);
+//     res.send(calcOne / calcTwo);
+//   }
+// }
+
   // var stringResult = result.toString();
-  console.log(result);
-  console.log(typeof result);
-  res.send(result.toString());
-  console.log(result);
-});
+  // console.log(result);
+  // console.log(typeof result);
+  // res.send(result.toString());
+  // console.log(result);
+}); // NOTE: app.post
 // console.log(calcOne, calcTwo);
 // app.get('/', function(req, res) {
 //   res.send(200);
 // });
 
 // NOTE: use res.send('whatever you're trying to send back');
+
+
 
 
 // NOTE: From Vanilla Node/app.js
@@ -55,4 +89,4 @@ app.post('/', function(req, res) {
 
 
 app.listen(5000);
-console.log('Listening to Port 5000');
+// console.log('Listening to Port 5000');

@@ -1,57 +1,7 @@
-// Client code might look like this:
-// $.ajax({
-//     type: "POST",
-//     url: "/division",
-//     success: function(data){
-//        //something here
-//     }
-// });
 $(document).ready(function () {
 console.log('jQuery is sourced');
-
-$('#multiply').on('click', function(){
-  console.log('multiply has been clicked');
-});
-
-////////////////////////////////////////////////// NOTE: Into Server ////////////////////////////////////////////////
-////////////////////////////////////////////////// NOTE: Into Server ////////////////////////////////////////////////
-////////////////////////////////////////////////// NOTE: Into Server ////////////////////////////////////////////////
-// On click I want to run a function that takes the two entered numbers and the PEMDAS within the function, console logged, and then passes these values over to the server
-  // var numArray = {$num1, $num2};
-  // var $num1 = $('#num1').val();
-  // var $num2 = $('#num2').val();
-
-// $.ajax({
-//   type: 'GET',
-//   url: '/',
-//   success: function(response){
-//     console.log('Ajax-GET Response: ', response);
-//     // $('numArray').empty();  // NOTE: Empty the object
-//   }
-// })
-
-// NOTE: Operators
-function opsFunction () {
-var ops = document.getElementById("operator").length
-document.getElementById("calculation").innerhtml = ops;
-}
-
-// NOTE: fromMelissa
-// var mathObject = {                // creating the object
-//        x: $('#numX').val(),
-//        y: $('#numY').val(),
-//        symbol: $('.mathSymbols').val()
-// NOTE: Operators
-
-function () {
-  // var operator = $('select[name="options"]').find('option[value="3"]').attr("selected",true);
-
-
-  if ( operator == true) {
-console.log('Operator Selection: ', operator);
-}
-}
-
+////////////////////////// NOTE: Into Server ///////////////////////////////////
+// $('numArray').empty();  // NOTE: Empty the object
 
 // NOTE: clear
 var clear = $('#clear').on('click', function() {
@@ -63,22 +13,28 @@ var clear = $('#clear').on('click', function() {
 });
 
 
-$('#result').on('click', function(num1 , num2 ){
+// NOTE: on click
+$('#result').on('click', function(){
   console.log('Result Button clicked');
-  var $num1 = $('#num1').val();  // NOTE: moved to global
-  var $num2 = $('#num2').val();  // NOTE: moved to global
-  var numArray = {$num1, $num2};  // NOTE: moved to global
-  console.log(numArray);
+  var $num1 = $('#num1').val();
+  var $num2 = $('#num2').val();
+  var ops = $('#operator').val();
+  var calcData = {$num1, $num2, ops};
+  var objectToSend = {
+    num1: $num1,
+    num2: $num2,
+    operator: ops
+  }
+  console.log(objectToSend);
   // function ajaxPost() {
     $.ajax({
       type: 'POST', // NOTE: These two lines are retrieving AND posting data
       url: '/',
-      data: numArray, // NOTE: data becomes req.body on the server side
+      data: ops,
+      // data: objectToSend, // NOTE: data becomes req.body on the server side
       success: function(response) {
-        console.log('Successful response from server back here to client.  Result is: ', response);
-        console.log(response);
-        // $('#calculation').text(response)
-        $('#calculation').val(response)
+        console.log('Successful response from server back to client.  Result is: ');
+        // $('#calculation').val(response)
       }
     });// NOTE: FOR: $.ajax({
     // }
